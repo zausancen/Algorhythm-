@@ -46,12 +46,11 @@ for escale in escale_list_super:
     for keys in escale:
         for chord in chords:
             if keys == chord:
-                respuesta.append(escale)
-                print(len(respuesta))
-                print(type(respuesta))
-            else:
-                pass
-
+                print(True)
+    #             respuesta.append(escale)
+    #         else:
+    #             pass 
+    # print(escale.values())    
 
 
 
