@@ -14,7 +14,7 @@ AS    =['A#','Cm','Dm','D#','F','Gm','Am7b5']
 B     =['B','C#m','D#m','E','F#','G#m','A#m7b5']
 rank  =['I','IIm','IIIm','IV','V','VIm','VIIdim']
 
-escale_list = []
+escale_list_super = []
 
 Escalas = [C,CS,D,DS,E,F,FS,G,GS,A,AS,B]
 
@@ -22,9 +22,7 @@ def grados(list):
     return dict(zip(list, rank))
 
 for escala in Escalas:
-    escale_list.append(grados(escala))
-
-# print(escale_list)
+    escale_list_super.append(grados(escala))
 
 chords = []
 
@@ -41,17 +39,20 @@ except ValueError:
 for i in range (1, int(amount) + 1) :
     chord = input(f"Ingresa el acorde {i}: ")
     chords.append(chord)
-    
-shared_items = {k: escale_list[k] for k in escale_list if k in chords and escale_list[k] == chords[k]}
-print(len(shared_items))
+
+respuesta = []
+
+for escale in escale_list_super:
+    for keys in escale:
+        for chord in chords:
+            if keys == chord:
+                respuesta.append(escale)
+                print(len(respuesta))
+                print(type(respuesta))
+            else:
+                pass
 
 
-# for chord in C:
-#     for value in chords:
-#         if chord == value:
-#             contador(count)
-
-# print(contador(count))
 
 
 # percent = float(count/len(C))*100
