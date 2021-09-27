@@ -23,7 +23,8 @@ def grados(list):
 
 for escala in Escalas:
     escale_list_super.append(grados(escala))
-
+    
+# print(escale_list_super)
 chords = []
 
 amount = input("Cuantos acordes tiene tu progresión? :")
@@ -46,8 +47,17 @@ for escale in escale_list_super:
     for keys in escale:
         for chord in chords:
             if keys == chord:
-                print(True)
-    #             respuesta.append(escale)
+                # print(escale.keys())
+                respuesta.append(escale.keys())
+                break
+#print(type(respuesta) )
+print(respuesta)
+
+
+#ls = list(dict.fromkeys(respuesta))
+#print(ls)
+                
+    #             respuesta = respuesta.append(escale.keys())
     #         else:
     #             pass 
     # print(escale.values())    
