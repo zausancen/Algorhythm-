@@ -1,6 +1,6 @@
 #Programa que indica la tonalidad en la que estas mediante los grados armónicos (mayor)  
-def grados(list):
-    return dict(zip(list, rank))
+def degrees(list):
+    return dict(zip(list, degree))
 
 C     =['C','Dm','Em','F','G','Am','Bm7b5']
 CS    =['C#','D#m','Fm','F#','G#','A#m','Cm7b5']
@@ -14,51 +14,50 @@ GS    =['G#','A#m','Cm','C#','D#','Fm','Gm7b5']
 A     =['A','Bm','C#m','D','E','F#m','G#m7b5']
 AS    =['A#','Cm','Dm','D#','F','Gm','Am7b5']
 B     =['B','C#m','D#m','E','F#','G#m','A#m7b5']
-rank  =['I','IIm','IIIm','IV','V','VIm','VIIdim']
+degree  =['I','IIm','IIIm','IV','V','VIm','VIIdim']
 
-escale_list_super = []
+scale_super_list = []
 
-Escalas = [C,CS,D,DS,E,F,FS,G,GS,A,AS,B]
+scales = [C,CS,D,DS,E,F,FS,G,GS,A,AS,B]
 
-for escala in Escalas:
-    escale_list_super.append(grados(escala))
+for scale in scales:
+    scale_super_list.append(degrees(scale))
 
     
 chords = []
-amount = input("Cuantos acordes tiene tu progresión? :")
+amount = input("How many chords does your progression have?:")
 
 
 try:
     int(amount)
     pass
 except ValueError:
-    print("Ingresa por favor un numero entero")
+    print("Please enter a integer number")
     exit() 
     
     
 for i in range (1, int(amount) + 1) :
-    chord = input(f"Ingresa el acorde {i}: ")
+    chord = input(f"Enter the chord {i}: ")
     chords.append(chord)
 
-respuesta = []
-sin_repetidos = []
+answers = []
+without_repeats = []
 
-for escale in escale_list_super:
-    for keys in escale:
+for scale in scale_super_list:
+    for keys in scale:
         for chord in chords:
             if keys == chord:
-                # print(escale.keys())
-                respuesta.append(escale)
+                answers.append(scale)
                 break
             
             
-for respuestas in respuesta:
-    if respuestas not in sin_repetidos:
-        sin_repetidos.append(respuestas)
+for answer in answers:
+    if answer not in without_repeats:
+        without_repeats.append(answer)
 
 
-for elements in sin_repetidos:
-    print(f'Coincidencia con: {elements} \n')
+for elements in without_repeats:
+    print(f'Match with: {elements}')
 
 
 
